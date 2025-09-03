@@ -84,9 +84,8 @@ Another common use-case is work on multiple customers/projects/tasks - all with 
 ## Show me the code
 
 - <https://github.com/canvas-ai/canvas-server>
-- <https://github.com/canvas-ai/canvas-synapsd>
-- <https://github.com/canvas-ai/canvas-shell>
-- <https://github.com/canvas-ai/canvas-electron>
+- <https://github.com/canvas-ai/canvas-web>
+- <https://github.com/canvas-ai/canvas-cli>
 - <https://github.com/canvas-ai/canvas-browser-extensions>
 
 ## Get Involved
