@@ -1,5 +1,24 @@
 **Canvas** is a cross-platform, cross-device **desktop overlay** to help **organize** your **work**, **workflows** and **data** into separate "**contexts**".
 
+The **TL;DR** version: 
+
+Create a new Canvas - for example with a context url `work://customer/devops/jira-1234` - and start working as you normally would  
+- Add/link **files**
+- **contacts** or
+- **email threads**,
+- **browser tabs(urls)** from bound browsers,
+- **notes** and
+- **todo items**/tasks.
+
+This canvas becomes shareable, your colleagues can add notes or their own browser tabs or files. You can access all the data via directly within your OS(webdav, canvas-electron, browser-extension) or via webui or cli or even plain curl.    
+Whenever you need to switch to an existing context - lets say `work://customer/devops/jira-1111`, every context-bound application switches with you =>  
+You get everything related to that particular context on all your connected and bound devices(related emails, files, todos, notes, tabs, you name it) - a new canvas, on a new clean table, with a task-customized toolbox, in a task-dedicated office! 
+
+
+----
+
+OK, now the loong, boring and probably outdated version desperately awaiting a refactor:
+
 **Contexts** are represented by a virtual file-system tree powered by bitmaps\[[0](https://en.wikipedia.org/wiki/Bitmap)\]. Every tree node("directory") represents a **layer** linked to a roaring bitmap\[[1](https://roaringbitmap.org/)\], filtering down all unstructured information fighting for your attention while working in a standard(tm) desktop environment(emails, notifications/chat and system messages, growing number of random browser tabs, unmanageable stack of windows and ad-hoc download-extract-test-forget endeavors to name a few).
 
 A **Contex Tree** may look as follows:
