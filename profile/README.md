@@ -2,18 +2,19 @@
 
 The **TL;DR** version: 
 
-Create a new Canvas - for example with a context url `work://customer/devops/jira-1234` - and start working as you normally would  
-- Add/link **files**
+Create a new Canvas - for example with a context url `work://customer/devops/jira-1234` - and start working on your task as you normally would  
+- Add/link local or remote **files**
 - **contacts** or
-- **email threads**,
+- **email threads** based on contacts, email subject or a specific thread identifier,
 - **browser tabs(urls)** from bound browsers,
 - **notes** and
-- **todo items**/tasks.
+- **todo items**/sub-tasks.
 
-This canvas becomes shareable, your colleagues can add notes or their own browser tabs or files. You can access all the data via directly within your OS(webdav, canvas-electron, browser-extension) or via webui or cli or even plain curl.    
+This canvas becomes **shareable**, your colleagues can add notes or their own browser tabs or files. You can access all indexed data directly within your OS(webdav-mounted workspace, canvas-electron, browser-extension) or via webui or cli or even plain curl.    
 Whenever you need to switch to an existing context - lets say `work://customer/devops/jira-1111`, every context-bound application switches with you =>  
-You get everything related to that particular context on all your connected and bound devices(related emails, files, todos, notes, tabs, you name it) - a new canvas, on a new clean table, with a task-customized toolbox, in a task-dedicated office! 
+You get everything related to that particular context on all your connected and bound devices(related emails, files, todos, notes, tabs, you name it) - a new canvas, on a new clean table, with a task-customized toolbox, in a task-dedicated office!(or whatever abstraction is more aligned to your internal world model:) 
 
+Context switches are still expensive, but they can now be orders of magnitude more efficient!
 
 ----
 
