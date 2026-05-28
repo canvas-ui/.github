@@ -1,20 +1,34 @@
-**Canvas** is a cross-platform, cross-device **desktop overlay** to help **organize** your **work**, **workflows** and **data** into separate "**contexts**".
+**Canvas** is a cross-platform, cross-device **~desktop~ world overlay** to help **organize** your **work**, **workflows** and unstructured **data** of your `Universe` into `Workspaces` exporting virtual bitmap-powered `context` and `directory`-like trees, with shareable, bindable `contexts` on top, built on LMDB, roaring-bitmaps, embedding vector trees and coffee. 
+
+Yeah, no worries, there is some `ai`(tm) inthere somewhere too.
 
 The **TL;DR** version: 
 
-Create a new Canvas - for example with a context url `work://customer/devops/jira-1234` - and start working on your task as you normally would  
-- Add/link local or remote **files**
-- **contacts** or
-- **email threads** based on contacts, email subject or a specific thread identifier,
-- **browser tabs(urls)** from bound browsers,
-- **notes** and
-- **todo items**/sub-tasks.
+- Create a `Workspace`
+- Add data backends you want to index(local fs, s3, imap mailboxes, messaging apps)
+- Start building a context tree on top of your data that follows whatever mental model is needed to work on your tasks
+- Configure import/ingestion hooks
+- Create `Contexts` and `Canvases`
+- Bind applications to them, so that switching from `work://customer-a/devops/jira-1234` to `work://customer-b/sec-compliance/reports` will automatically load all your context-related
+  - **files**
+  - **contacts**
+  - **email threads** (based on contacts, email subject or a specific thread identifier)
+  - **chat conversations**
+  - **browser tabs(urls)**
+  - **notes**
+  - **todo items**
 
-This canvas becomes **shareable**, your colleagues can add notes or their own browser tabs or files. You can access all indexed data directly within your OS(webdav-mounted workspace, canvas-electron, browser-extension) or via webui or cli or even plain curl.    
-Whenever you need to switch to an existing context - lets say `work://customer/devops/jira-1111`, every context-bound application switches with you =>  
-You get everything related to that particular context on all your connected and bound devices(related emails, files, todos, notes, tabs, you name it) - a new canvas, on a new clean table, with a task-customized toolbox, in a task-dedicated office!(or whatever abstraction is more aligned to your internal world model:) 
+Switching between tasks becomes like switching between an organized set of canvases, on a new clean table, a task-customized toolbox, in a task-dedicated office!(or whatever abstraction is more aligned to your internal world model:) 
 
-Context switches are still expensive, but they can now be orders of magnitude more efficient!
+Context switches may still be expensive, but they can now be orders of magnitude more efficient.  
+
+Each `Canvas` or `Context` is **shareable**, your colleagues can add notes or their own browser tabs or files. You can access all indexed data directly within your OS(webdav-mounted workspace, canvas-electron, browser-extension) or via webui or cli or even plain curl.  
+
+There is no limitation on what data you can index,  
+Canvas supports dotfiles, meaning, you can have a per-project ~/.ssh config activated whenever you switch from   
+`$ context set work://customer-foo/project-foo`
+to
+`$ context set work://customer-foo/project-bar`
 
 ----
 
@@ -68,10 +82,10 @@ universe://
 ```
 
 **Universe** is your default(home) workspace.  
-Your Universe can be further split into self-contained, movable/shareable **Workspaces**, each running its own in-process database with a context tree abstraction on top(you may want to have a dedicated worksapce per customer or project; a handover to a BAU engineer would then be just a matter of export - import of your project workspace).
+Your Universe can be further split into self-contained, movable/shareable **Workspaces**, each running its own in-process database with a context tree abstraction on top(you may want to have a dedicated workspace per customer or project; a handover to a BAU engineer would then be just a matter of export - import of your project workspace).
 
-**Layers** are unique - a `reports` layer in `/work/customer-a/reports` and `/work/customer-b/reports` is stored under the same uuid linking to the same bitmap - renaming/removing/updating one will update all occurences in the context tree.  
-Context layers filter different data based on where they are placed. Iow, moving `reports` to `/` would show you all data linked to the reports layer within your Universe, moving it under `/work/customer-a` would do a logical AND on the `work`, `customer-a` and `reports` layer bitmaps and result in a filtered view of data that are linked to all of the layers in your path).  
+**Context tree Layers** are unique - a `reports` layer in `/work/customer-a/reports` and `/work/customer-b/reports` is stored under the same uuid linking to the same bitmap - renaming/removing/updating one will update all occurences in the context tree.  
+Context layers filter different data based on `where` they are placed. Iow, moving `/customer-a/reports` returns reports of customer-a, `/customer-b/report` of customer-b, creating `/reports` will return all data tagged/linked to the reports layer for all customers.  
 
 **Canvas-server** is a small nodejs-based runtime that can be run directly on your machine or dockerized almost anywhere you want(lets say your home NAS or your favorite trusted cloud provider).
 
@@ -83,15 +97,6 @@ You set your context to `home://travel/2025/europe/spain`(via command-line of co
 
 Another common use-case is work on multiple customers/projects/tasks - all with their own set of contacts and long-running email threads, notes, files, browser tabs etc. Switching between them should be like teleporting between perfectly maintained offices - all of them with a tidy clean desk with only the tools you need to accomplish your task.
 
-## Canvas is split into the following components:
-  - canvas-server: Main server runtime accessible via REST and websockets, current codebase
-  - canvas-synapsd: Database backend, built on top of LMDB and roaring bitmap indexes
-  - canvas-shell: Curl-based bash CLI client using canvas-server REST API
-  - canvas-cli: Node-based CLI client using REST and websockets for REPL mode
-  - canvas-electron: UI/Frontend
-  - canvas-web: UI/Frontend
-  - canvas-browser-extensions: UI/Frontend
-
 ## Couple of core principles to start with
 
 - **You own your data**  
@@ -101,14 +106,16 @@ Another common use-case is work on multiple customers/projects/tasks - all with 
 
 ## Show me the code
 
-- <https://github.com/canvas-ai/canvas-server>
-- <https://github.com/canvas-ai/canvas-web>
- <https://github.com/canvas-ai/canvas-browser-extensions>
-- <https://github.com/canvas-ai/canvas-cli>
+- <https://github.com/canvas-ui/canvas-server>
+- <https://github.com/canvas-ui/canvas-synapsd>
+- <https://github.com/canvas-ui/canvas-stored>
+- <https://github.com/canvas-ui/canvas-web>
+- <https://github.com/canvas-ui/canvas-browser-extensions>
+- <https://github.com/canvas-ui/canvas-cli>
 
 ## Get Involved
 
 - By opening a new issue in any existing repository
-- By picking an issue to work on from <https://github.com/orgs/canvas-ai/projects/2>
-- Saying hello in [Slack](https://join.slack.com/t/canvasai/shared_invite/zt-2x9ywczgx-UYP6buONsPe0kvNM9zVdxw)
+- By picking an issue to work on from <https://github.com/orgs/canvas-ui/projects/2>
+- Saying hello in [Slack](https://join.slack.com/t/augmentd-labs/shared_invite/zt-2x9ywczgx-UYP6buONsPe0kvNM9zVdxw)
 - Or spamming us directly via <dev@getcanvas.org>
