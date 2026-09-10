@@ -4,7 +4,7 @@
 
 # Canvas UI
 
-**Canvas** is a cross-platform, cross-device **~desktop~ world overlay** to help **organize** your **work**, **workflows** and unstructured **data** of your own `Universe` into `Workspaces`, organizing data into virtual bitmap-powered `context` and `directory`-like trees, with shareable, bindable `contexts` on top, built on LMDB, roaring-bitmaps, embedding vector trees and coffee.
+**Canvas** is a cross-platform, cross-device **~desktop~ world overlay** to help **organize** your **work**, **workflows** and unstructured **data** of your own, slightly unusual `Universe` into `Workspaces`, categorizing data into virtual bitmap-powered `context` and `directory`-like trees, with shareable, bindable `contexts` on top, built on LMDB, roaring-bitmaps, embedding vector trees and coffee.
 
 Yeah, no worries, there is some `ai`(tm) in there somewhere too.
 
