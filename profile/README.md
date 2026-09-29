@@ -4,11 +4,42 @@
 
 # Canvas UI
 
-**Canvas** is a cross-platform, cross-device **~desktop~ world overlay** to help **organize** your **work**, **workflows** and unstructured **data** of your own, slightly unusual `Universe` into `Workspaces`, categorizing data into virtual bitmap-powered `context` and `directory`-like trees, with shareable, bindable `contexts` on top, built on LMDB, roaring-bitmaps, embedding vector trees and coffee.
+**Canvas** is a cross-platform, cross-device **~desktop~ world overlay** to help **organize** the **work**, **workflows** and unstructured **data** of your own slightly unusual `Universe` into `Workspaces`, virtual bitmap-powered `context`- and `directory`-like trees, with shareable, bindable `contexts` on top, built on LMDB, Roaring bitmaps, embedding vector trees and coffee.
 
 Yeah, no worries, there is some `ai`(tm) in there somewhere too.
 
-The **TL;DR** version: 
+| :exclamation: **Important update - TL;DR** |
+| --- |
+| After several years of my own time and effort invested in this project, I decided to close-source its main components, namely **canvas-server** (the server runtime / orchestration layer for Workspaces, Contexts, Roles and Agents), **canvas-agentd** and **canvas-synapsd** (the purpose-built in-process per-workspace/agent database used as the main index engine).<br><br>**This decision may not be final.** We'll see what the future brings, but this is what I feel is the right move as of now. |
+
+Now the **non-TL;DR version**
+
+**Canvas** began out of necessity as a loose set of scripts, simple utilities and collected workflows to help organize my own work - or, to be more precise, to help me context-switch between several projects in the corporate bill-paying job, my own consulting company and university. If I accounted for all the nights, weekends and dedicated hackathon days, the few paid contributions via Upwork, tooling costs and other development expenses over the years, I'd be well over 100k EUR in the red. Then again, I built a few very useful tools while doing that, became proficient in multiple programming languages and actually enjoyed most of the process, so it may not really be a net loss after all. You probably know this specific flavor of copium already, so let me stop here.
+
+How I justify this move **to myself**:
+
+- Assuming this project may be as useful to others as it is to me, there is currently no FOSS license **I know of** that could ensure I'd get back (in code contributions, feedback, sponsorship) at least as much as I'm investing.
+- There are currently no outside contributions. We are in an attention-based economy and this project has almost no visibility, mostly because I successfully ignored social media and only just started (yes, 09/2026, I know!) and still suck at it.
+- We've entered an era where implementation costs are, at least for now, negligible compared to the actual design and development costs. Why bother contributing back when you can spin up Claude Code on a $20 subscription, make your own tailored version of whatever tool you stumbled upon, and move on with your day? No bigger picture, no community, no making-the-world-a-better-place(tm) pathos. Open source in 2026 is turning into pure, individualistic, mechanical, tasteless, soulless, fix-my-current-needs-and-get-out-of-my-way .. porn.
+
+**FOSS** was already turning programmers into beggars (or standard-unit corporate employees with a Stallman hat), their love of building things used against their own financial interests. I don't have to blabber about the movement itself and its stated (but only stated) fight against the corporate Möchtegern nobility. Most of you presumably lived through parts of the story, some were even true believers. What I want to highlight nevertheless: despite having no fighting chance in the grand scheme of things, there was always a community one could build around a project. Random contributions, fixes, improvements, ad-hoc beers while visiting distant places on this beautiful blue dot. I feel we, as independent creators, are losing the incentive to cooperate. Convenience and individualism, with no natural complexity-predators and therefore no push to foster alliances out of the innate instinct for survival.
+
+Are 100k vibe-coded, purpose-built tools that each solve one particular problem better than 100 solutions that are (mostly miserable at) solving thousands of problems? They sure are, for whoever can search through them and spot the novel ones. Oh, and of course, that's the Unix way anyway, maybe even nature's way (don't pop the champagne yet, microservices people).
+
+Anyhow!  
+
+
+All integrations are still open-source and I do not plan to change that.  
+Canvas will become a SaaS product, with a self-hosted offering of the kind you know from the old Atlassian days.  
+I don't want your data. I want to turn this project into a thin layer on top of reality that augments our own inherent abilities. This move is my attempt to make sure I can keep working on it.
+
+May my Stallman hat keep its bright colors.
+
+
+---
+
+
+The **TL;DR** [Canvas UI] usage wofklow:
 
 - Create a `Workspace`
 - Add data backends you want to index(local fs, s3, imap mailboxes, messaging apps)
