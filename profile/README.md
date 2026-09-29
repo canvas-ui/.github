@@ -157,9 +157,7 @@ You set your context to `home://travel/2025/europe/spain`(via command-line of co
 - <https://github.com/canvas-ui/canvas-server>
 - <https://github.com/canvas-ui/canvas-synapsd>
 - <https://github.com/canvas-ui/canvas-stored>
-- <https://github.com/canvas-ui/canvas-web>
-- <https://github.com/canvas-ui/canvas-browser-extensions>
-- <https://github.com/canvas-ui/canvas-cli>
+- <https://github.com/canvas-ui/canvas-fuse>
 
 Client apps ([canvas-ui/canvas](https://github.com/canvas-ui/canvas)):
 
